@@ -3,3 +3,13 @@ body {
   padding: 0;
   direction: rtl;
 }
+
+button {
+  background-color: #3949ab;
+  border: none;
+  padding: 0.6rem 1rem;
+  color: #ffffff;
+  font: inherit;
+  border-radius: 3px;
+  outline: none;
+}

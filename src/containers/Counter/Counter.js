@@ -42,6 +42,12 @@ class Counter extends React.Component {
         <CounterControl label="کاهش" clicked={this.props.onDecrement} />
         <CounterControl label="افزودن ۲" clicked={this.props.onAdd} />
         <CounterControl label="کاهش ۲" clicked={this.props.onSub} />
+        <div>
+          <button onClick={this.props.onStoreResult}>نمایش</button>
+          {this.props.str.map((item) => {
+            return <p key={item}>{item}</p>;
+          })}
+        </div>
       </div>
     );
   }
@@ -50,6 +56,7 @@ class Counter extends React.Component {
 const mapStateToProps = (state) => {
   return {
     ctr: state.counter,
+    str: state.result,
   };
 };
 
@@ -59,6 +66,7 @@ const mapDispatchToProps = (dispatch) => {
     onDecrement: () => dispatch({ type: "DEC" }),
     onAdd: () => dispatch({ type: "ADD", value: 2 }),
     onSub: () => dispatch({ type: "SUB", value: 2 }),
+    onStoreResult: () => dispatch({ type: "RES" }),
   };
 };
 
