@@ -39,18 +39,9 @@ class Counter extends React.Component {
       <div>
         <CounterOutput value={this.props.ctr} />
         <CounterControl label="افزایش" clicked={this.props.onIncrement} />
-        <CounterControl
-          label="کاهش"
-          clicked={() => this.counterChangedHandler("dec")}
-        />
-        <CounterControl
-          label="افزودن ۲"
-          clicked={() => this.counterChangedHandler("add", 2)}
-        />
-        <CounterControl
-          label="کاهش ۲"
-          clicked={() => this.counterChangedHandler("sub", 2)}
-        />
+        <CounterControl label="کاهش" clicked={this.props.onDecrement} />
+        <CounterControl label="افزودن ۲" clicked={this.props.onAdd} />
+        <CounterControl label="کاهش ۲" clicked={this.props.onSub} />
       </div>
     );
   }
@@ -65,6 +56,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onIncrement: () => dispatch({ type: "INC" }),
+    onDecrement: () => dispatch({ type: "DEC" }),
+    onAdd: () => dispatch({ type: "ADD" }),
+    onSub: () => dispatch({ type: "SUB" }),
   };
 };
 
